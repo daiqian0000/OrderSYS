@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<!--
+		设置JDBC驱动路径。
+			location:驱动地址，放入数据库对应的JDBC驱动jar路径，是绝对路径。
+	 -->
+	<classPathEntry location="E:/SE/java/jdbc/mysql-connector-java-5.1.40.jar" />
+	
+	<!-- 用来指定产生一组对象的环境，多个数据库，就建立多个 context。 -->
+	<context id="context1">
+	
+		<commentGenerator>
+		
+			<!-- 去除自动生成的注释。 -->
+			<property name="suppressAllComments" value="true" />
+			<!-- 是否生成注释代时间戳。 -->
+			<!-- <property name="suppressDate" value="true" />-->
+			
+		</commentGenerator>
+
+		<!--
+			JDBC连接信息。
+				driverClass：驱动类。
+				connectionURL：连接字符串。
+				userId：用户名。
+				password：密码。
+		 -->
+		<jdbcConnection
+			driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.2.26:3306/jcpt"
+			userId="jcpt"
+			password="jcpt" />
+			
+		<!-- 
+			生成实体类。
+				targetPackage：生成的POJO放入的包。
+				targetProject：生成的POJO放入的项目，对应工作空间的项目。
+		 -->
+		<javaModelGenerator
+			targetPackage="com.asion.business.module.attach.model"
+			targetProject="system" />
+		
+		<!-- 
+			生成sqlMapper XML文件。
+				targetPackage：生成的SQL对应的包。
+				targetProject：生成的SQL接口对应的项目，对应工作空间的项目。
+		 -->
+		<sqlMapGenerator targetPackage="com.asion.business.module.attach.mapper"
+			targetProject="system" />
+		
+		<!-- 
+			生成DAO接口。
+				targetPackage：生成的DAO接口对应的包。
+				targetProject：生成的DAO接口对应的项目。
+				type：映射文件类型，一般为XMLMAPPER。
+		 -->
+		<javaClientGenerator targetPackage="com.asion.business.module.attach.mapper"
+			targetProject="system" type="XMLMAPPER" />
+		
+		<!--	生成实体类。
+					tableName：需要生成的表名。
+					domainObjectName：生成的POJO名，为空则为表名。 -->
+		
+		<!--	<table schema="" tableName="DEPT">			-->
+		<!--		去除一列，这样 PASSWORD这列就不会生成。		-->
+		<!--		<ignoreColumn column="PASSWORD"/>	-->
+		<!--		将数据库字段对应成POJO里面的字段。 				-->
+		<!--		<columnOverride column="USERID" property="userid" /> -->
+		<!--	</table>	-->
+		
+		<table schema="" tableName="LOC_BUCKET" domainObjectName="Bucket"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		
+	</context>
+
+</generatorConfiguration>

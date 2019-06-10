@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<contextName>logback</contextName>
+
+	<property name="pattern" value="%d %-5p [%c:%L] - %m%n"/>
+	<property name="charset" value="UTF-8"/>
+	<property name="logDir" value="logs"/>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${pattern}</pattern>
+			<charset>${charset}</charset>
+		</encoder>
+	</appender>
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logDir}/log.log</file>
+		<encoder>
+			<pattern>${pattern}</pattern>
+			<charset>${charset}</charset>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logDir}/log.%d.%i.log</fileNamePattern>
+			<maxHistory>100</maxHistory>
+			<maxFileSize>50MB</maxFileSize>
+			<totalSizeCap>20GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="org.apache" level="ERROR"/>
+	<logger name="org.springframework" level="ERROR"/>
+	<logger name="org.mybatis" level="ERROR"/>
+	<logger name="com.baomidou" level="ERROR"/>
+	<logger name="org.hibernate" level="ERROR"/>
+	<logger name="org.mongodb" level="ERROR"/>
+	<logger name="org.activiti" level="ERROR"/>
+	<logger name="org.quartz" level="ERROR"/>
+	<logger name="org.jboss" level="ERROR"/>
+	<logger name="com.ibatis" level="ERROR"/>
+	<logger name="com.alibaba" level="ERROR"/>
+
+	<root level="DEBUG">
+		<appender-ref ref="console"/>
+		<appender-ref ref="file"/>
+	</root>
+
+</configuration>

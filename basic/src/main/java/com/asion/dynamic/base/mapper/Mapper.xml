@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asion.dynamic.base.mapper.Mapper">
+	<select id="select" resultType="java.util.Map">
+		${_parameter}
+	</select>
+	<insert id="insert">
+		${_parameter}
+	</insert>
+	<update id="update">
+		${_parameter}
+	</update>
+	<delete id="delete">
+		${_parameter}
+	</delete>
+	<select id="currSeq" resultType="java.lang.Integer">
+		SELECT 
+			CASE WHEN MAX(CAST(${fieldName} AS SIGNED)) IS NOT NULL 
+			THEN MAX(CAST(${fieldName} AS SIGNED)) + 1 ELSE 1 END 
+		FROM ${tableName} 
+	</select>
+	<select id="isExists" resultType="java.lang.Boolean">
+		SELECT
+			CASE WHEN COUNT(1) >= 1
+			THEN TRUE ELSE FALSE END 
+		FROM ${tableName} 
+		WHERE ${fieldName} = #{value}
+	</select>
+</mapper>

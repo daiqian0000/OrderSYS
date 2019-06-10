@@ -1,0 +1,73 @@
+#系统业务配置
+sys:
+  address: localhost
+  port: 8080
+  name: manager
+  url: http://${sys.address}:${sys.port}/
+  timeout: 1440
+  uploadDir: upload
+  charset: UTF-8
+  dateFormat: yyyy-MM-dd HH:mm:ss
+  business:
+#服务器配置
+server:
+  session:
+    timeout: ${sys.timeout}
+    cookie:
+      http-only: true
+  tomcat:
+    uri-encoding: ${sys.charset}
+  context-path: /
+  port: ${sys.port}
+#Spring配置
+spring:
+#JDBC配置
+  datasource:
+    name: dataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/waps_formal?useSSL=false
+    username: root
+    password: woainidq89
+    initialSize: 1
+    minIdle: 1
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    maxPoolPreparedStatementPerConnectionSize: 100
+    poolPreparedStatements: true
+    validationQuery: SELECT 1 FROM DUAL
+    filters: stat
+#HTTP配置
+  http:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 2048MB
+    encoding:
+      force: true
+      enabled: true
+      charset: ${sys.charset}
+#MVC配置
+  mvc:
+    date-format: ${sys.dateFormat}
+    static-path-pattern: /static/**
+    view:
+      prefix: /static/
+      suffix: .html
+#jackson配置
+  jackson:
+    date-format: ${sys.dateFormat}
+    default-property-inclusion: non-null
+#Redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: woainidq89
+    database: 8
+    enableTransactionSupport: false
+    pool:
+      max-active: 150
+      max-idle: 30
+      min-idle: 10
+      max-wait: 1000

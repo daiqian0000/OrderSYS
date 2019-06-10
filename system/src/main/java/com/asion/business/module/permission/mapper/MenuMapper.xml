@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asion.business.module.permission.mapper.MenuMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, MENU_ID, NAME, TYPE, PARENT_ID, SYS_ID, ICON, HREF, TARGET, PERMISSION, SORT, DISPLAY
+    </sql>
+
+	<!-- 查询菜单路径 -->
+	<select id="menuPath" resultType="java.lang.String">
+		<if test="permissions != null and permissions.length > 0">
+			<trim prefix="SELECT GROUP_CONCAT(T.NAME SEPARATOR ';') FROM (" suffix=") T">
+				<foreach item="item" collection="permissions" separator=" UNION ">
+					SELECT MENU_PATH_BY_PER(#{item}) AS NAME
+				</foreach>
+			</trim>
+		</if>
+	</select>
+
+</mapper>

@@ -1,0 +1,190 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.asion</groupId>
+	<artifactId>ordersys-manager</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>ordersys-manager</name>
+	<description>订鞋小程序后台</description>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.8.RELEASE</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>com.asion</groupId>
+			<artifactId>ordersys</artifactId>
+			<version>1.0.0</version>
+			<exclusions>
+				<!-- <exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-configuration-processor</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-aop</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-test</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+				    <groupId>org.springframework.boot</groupId>
+				    <artifactId>spring-boot-starter-web</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+				    <groupId>org.springframework.boot</groupId>
+				    <artifactId>spring-boot-starter-jdbc</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-mongodb</artifactId>
+				</exclusion>
+				<!-- <exclusion>
+				    <groupId>org.springframework.boot</groupId>
+				    <artifactId>spring-boot-starter-data-redis</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-amqp</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+				    <groupId>mysql</groupId>
+				    <artifactId>mysql-connector-java</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.oracle</groupId>
+					<artifactId>ojdbc6</artifactId>
+				</exclusion>
+				<!-- <exclusion>
+				    <groupId>commons-io</groupId>
+				    <artifactId>commons-io</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>org.apache.commons</groupId>
+				    <artifactId>commons-lang3</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>commons-beanutils</groupId>
+				    <artifactId>commons-beanutils</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>commons-collections</groupId>
+				    <artifactId>commons-collections</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>commons-dbcp</groupId>
+				    <artifactId>commons-dbcp</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>commons-fileupload</groupId>
+				    <artifactId>commons-fileupload</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>commons-logging</groupId>
+				    <artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>org.apache.commons</groupId>
+				    <artifactId>commons-pool2</artifactId>
+				</exclusion> -->
+				<!-- <exclusion>
+				    <groupId>com.baomidou</groupId>
+					<artifactId>mybatis-plus</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>com.vividsolutions</groupId>
+					<artifactId>jts-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.vividsolutions.jts</groupId>
+					<artifactId>jtsio</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.esri.geometry</groupId>
+					<artifactId>esri-geometry-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.zxing</groupId>
+					<artifactId>core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.zxing</groupId>
+					<artifactId>javase</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.quartz-scheduler</groupId>
+					<artifactId>quartz</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpcore</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpmime</artifactId>
+				</exclusion>
+				<!-- <exclusion>
+					<groupId>com.alibaba</groupId>
+			    	<artifactId>druid</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>com.aliyun.oss</groupId>
+					<artifactId>aliyun-sdk-oss</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi</artifactId>
+				</exclusion>
+				<!-- <exclusion>
+				    <groupId>org.owasp.antisamy</groupId>
+				    <artifactId>antisamy</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>org.apache.velocity</groupId>
+					<artifactId>velocity-engine-core</artifactId>
+				</exclusion>
+				<!-- <exclusion>
+				    <groupId>org.apache.shiro</groupId>
+				    <artifactId>shiro-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.shiro</groupId>
+					<artifactId>shiro-spring</artifactId>
+				</exclusion> -->
+			</exclusions>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+</project>
