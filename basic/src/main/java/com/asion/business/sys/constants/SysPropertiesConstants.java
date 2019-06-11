@@ -7,7 +7,5 @@ package com.asion.business.sys.constants;
  *
  */
 public class SysPropertiesConstants {
-    public static void main(String[] args) {
-        System.out.println("test");
-    }
+
 }
